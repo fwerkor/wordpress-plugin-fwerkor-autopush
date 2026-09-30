@@ -3,7 +3,7 @@
  * Plugin Name: FWERKOR Auto Push
  * Plugin URI: https://github.com/fwerkor/wordpress-plugin-fwerkor-autopush
  * Description: Asynchronous first-party URL submission to Baidu, Bing, and IndexNow when WordPress posts are published or materially updated.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: FWERKOR
  * License: GPL-2.0-or-later
  * Requires at least: 6.0
@@ -142,7 +142,7 @@ final class FWERKOR_Auto_Push {
         $host = (string) wp_parse_url(home_url('/'), PHP_URL_HOST);
         $endpoint = add_query_arg(
             array('site' => $host, 'token' => $o['baidu_token']),
-            'https://data.zz.baidu.com/urls'
+            'http://data.zz.baidu.com/urls'
         );
 
         $response = wp_remote_post(
@@ -315,6 +315,7 @@ final class FWERKOR_Auto_Push {
                 <input type="hidden" name="fwerkor_autopush_settings" value="1">
                 <table class="form-table">
                     <?php $this->engine_row('Baidu', 'baidu', !empty($o['baidu_enabled']), !empty($o['baidu_token'])); ?>
+                    <tr><th></th><td><p class="description">Baidu currently documents its URL submission endpoint over plain HTTP. When Baidu is enabled, its submission token is therefore transmitted without TLS. Bing and IndexNow continue to use HTTPS.</p></td></tr>
                     <?php $this->engine_row('Bing', 'bing', !empty($o['bing_enabled']), !empty($o['bing_token'])); ?>
                     <?php $this->engine_row('IndexNow', 'indexnow', !empty($o['indexnow_enabled']), !empty($o['indexnow_key'])); ?>
                     <tr><th>Request timeout</th><td><input type="number" name="timeout" min="3" max="60" value="<?php echo esc_attr((string) $o['timeout']); ?>"> seconds</td></tr>
