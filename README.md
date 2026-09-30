@@ -1,15 +1,25 @@
-# FWERKOR AutoPush
+# FWERKOR Auto Push
 
-First-party search-engine URL submission for WordPress.
+Asynchronous URL submission for WordPress posts.
 
 ## Features
-- Submit newly published posts asynchronously
+
 - Baidu URL submission
 - Bing Webmaster URL submission
-- IndexNow submission and automatic key verification
-- Retry failed submissions up to three times
+- IndexNow submission
+- Pushes new or materially updated published posts asynchronously through WP-Cron
+- TLS verification enabled
+- Dynamic IndexNow key endpoint
 - Recent submission log
-- Manual queue for the latest 10 posts
-- Credentials stay in the WordPress database and are never embedded in source
+- Existing ggpush credentials can be migrated on first activation without placing secrets in source
+- No API keys, tokens, or site-specific hostnames in the repository
 
-No site hostname is hard-coded. Site URLs are derived from WordPress configuration.
+Secrets are stored only in the WordPress options table.
+
+## Requirements
+
+WordPress 6.0+ and PHP 8.0+.
+
+## License
+
+GPL-2.0-or-later.
