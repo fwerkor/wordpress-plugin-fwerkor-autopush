@@ -3,7 +3,7 @@
  * Plugin Name: FWERKOR Auto Push
  * Plugin URI: https://github.com/fwerkor/wordpress-plugin-fwerkor-autopush
  * Description: Asynchronous first-party URL submission to Baidu, Bing, and IndexNow when WordPress posts are published or materially updated.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: FWERKOR
  * License: GPL-2.0-or-later
  * Requires at least: 6.0
